@@ -15,7 +15,8 @@ int dano,eva,def;
 }pe;
 
 typedef struct morcego{
-int vida,dano,eva,def;
+int vida;
+int dano;
 }mo;
 
 typedef struct esqueleto{
@@ -47,13 +48,15 @@ void menu(){
 		}
 		case 2:{
 			
-			printf("Gravar progresso ainda nao implementada");
+			printf("Gravar progresso ainda nao implementada\n");
+			system("pause");
 			menu();
 			break;
 		}
 		case 3:{
 			
-			menu();
+			//menu();
+			exit(0);
 			break;
 		}
 	}
@@ -114,7 +117,7 @@ if(op==3){
 void rpg(pe * x){
 pe perso;
 int op;
-//while (op!=3){
+while (op!=3){
 
 system("cls");
 //printf("batalha\n");
@@ -135,12 +138,15 @@ case 1:{
 	printf("Classe : Arqueiro\n");
 	}
 	printf("Nome : %s\nVida : %d\nDano : %d\nDefesa : %d\nEvasao : %d\n",nome,x->vida,x->dano,x->def,x->eva);
+	system("pause");
 	break;
 }
 case 2:{
+	batalha(&perso);
 	break;
 }
 case 3:{
+	menu();
 	break;
 }
 default:{
@@ -148,37 +154,46 @@ default:{
 }
 }
 }
-//}
-
-
-
-
-
-
-
+}
 
 void batalha(){
 int op;
+int x;
 
 system("cls");
-printf("batalha\n");
-printf("selecione sua acao\n1-atacar\n2-usar item\n3-fugir");
+
+ x=1+(rand() %2);
+ if (x==1){
+    printf("Voce encontrou um morcego!\n");
+ }
+ if (x==2){
+    printf("voce encontrou um esqueleto!\n");
+ }
+while (op!=3){
+
+printf("selecione sua acao\n1-atacar\n2-usar item\n3-fugir\n");
 scanf("%d", &op);
 
 
 
 switch(op){
 case 1:{
+	system("cls");
+	printf("voce atacou\n");
+	system("pause");
 	break;
 }
 case 2:{
 	break;
 }
 case 3:{
+	printf("voce fugiu !");
+	system("pause");
 	break;
 }
 default:{
 	break;
+}
 }
 }
 }
