@@ -33,7 +33,7 @@ void menu(){
 	system("cls");
 	
 	int op,esc;
-	printf("JANIO'S ADVENTURE\n 1-continuar : ");
+	printf("JANIO'S ADVENTURE\n Pressione 1 para comecar: ");
 	scanf("%d",&esc);
 	system("cls");
 	printf("Selecione uma opcao\n 1-Novo jogo\n 2-Carregar jogo salvo\n 3-Sair\n");
@@ -85,7 +85,7 @@ if (op==1){
 	perso.def  		= 50;
 	perso.eva  		= 20;
 	perso.classe 	= 1;
-	rpg();
+	rpg(&perso);
      }
 if (op==2){
     system("cls");
@@ -95,6 +95,7 @@ if (op==2){
 	perso.def  		= 10;
 	perso.eva  		= 10;
 	perso.classe 	= 2;
+	rpg(&perso);
 }
 if(op==3){
 	system("cls");
@@ -104,28 +105,36 @@ if(op==3){
 	perso.def 	 	= 10;
 	perso.eva 	 	= 50;
 	perso.classe 	= 3;
+    rpg(&perso);
 }     
 }
 
 
 
-
-
-void rpg(){
+void rpg(pe * x){
 pe perso;
 int op;
 //while (op!=3){
 
 system("cls");
-printf("batalha\n");
-printf("1-Mostrar status\n2-Entrar na Dungeon\n3-Sair");
+//printf("batalha\n");
+printf("1-Mostrar status\n2-Entrar na Dungeon\n3-Sair\n");
 scanf("%d", &op);
 
 switch(op){
 pe perso;
 case 1:{
 	system("cls");
-	printf("Nome : %s\nVida : %d",nome,perso.vida);
+	if(x->classe == 1){
+	printf("Classe : Guerreiro\n");
+	}
+	if(x->classe == 2){
+	printf("Classe : Mago\n");
+	}
+	if(x->classe == 3){
+	printf("Classe : Arqueiro\n");
+	}
+	printf("Nome : %s\nVida : %d\nDano : %d\nDefesa : %d\nEvasao : %d\n",nome,x->vida,x->dano,x->def,x->eva);
 	break;
 }
 case 2:{
