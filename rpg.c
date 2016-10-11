@@ -133,8 +133,8 @@ printf("1-Mostrar status\n2-Entrar na Dungeon\n3-Sair\n");
 scanf("%d", &op);
 
 switch(op){
-pe perso;
 case 1:{
+	system("pause");
 	system("cls");
 	if(x->classe == 1){
 	printf("Classe : Guerreiro\n");
@@ -150,7 +150,8 @@ case 1:{
 	break;
 }
 case 2:{
-	batalha(&perso);
+	pe person = *x;
+	batalha(person);
 	break;
 }
 case 3:{
@@ -194,10 +195,11 @@ switch(op){
 case 1:{
 	system("cls");
 	printf("voce atacou\n");
-//	printf("seu dano : %d\n",x->dano);
+	printf("seu dano : %d\n",x->dano);
 	ata = 0;
-	//ata = x->dano;
-	ata = 30;
+	ata = x->dano;
+	
+	//ata = 30;
 	printf("voce hitou : %d\n",ata);
 	esq.vida-=ata;
 	printf("vida do inimigo : %d\n",esq.vida);
